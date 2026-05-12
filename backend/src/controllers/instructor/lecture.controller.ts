@@ -31,6 +31,7 @@ export const uploadLecture = async (req: AuthRequest, res: Response) => {
       videoUrl: uploadResult.secure_url,
       publicId: uploadResult.public_id,
       createdAt: new Date(),
+      duration: uploadResult.duration ?? null,
     });
 
     return res.status(201).json({
