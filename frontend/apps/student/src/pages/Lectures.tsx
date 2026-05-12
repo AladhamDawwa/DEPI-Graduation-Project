@@ -51,12 +51,12 @@ function LectureCard({
 
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="relative aspect-video bg-gray-200 flex items-center justify-center">
-        <Video className="w-12 h-12 text-gray-400" />
+      <div className="relative aspect-video bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+        <Video className="w-12 h-12 text-gray-400 dark:text-gray-500" />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
           <Button
             size="lg"
-            className="rounded-full w-16 h-16 bg-white hover:bg-gray-100"
+            className="rounded-full w-16 h-16 bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700"
             onClick={() => onWatch(lecture)}
           >
             <Play className="w-8 h-8 text-indigo-600" />
@@ -81,16 +81,16 @@ function LectureCard({
           <Badge variant="outline">{lecture.courseName}</Badge>
         </div>
         <CardTitle className="text-base leading-tight">{lecture.title}</CardTitle>
-        <p className="text-sm text-gray-500">{lecture.instructorName}</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">{lecture.instructorName}</p>
       </CardHeader>
       <CardContent className="pt-0">
         {lecture.watchProgress > 0 && (
           <div className="mb-3">
-            <div className="flex items-center justify-between text-xs text-gray-600 mb-1">
+            <div className="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400 mb-1">
               <span>Progress</span>
               <span>{lecture.watchProgress}%</span>
             </div>
-            <div className="bg-gray-200 rounded-full h-1.5">
+            <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
               <div
                 className="bg-indigo-600 h-1.5 rounded-full"
                 style={{ width: `${Math.min(lecture.watchProgress, 100)}%` }}
@@ -98,7 +98,7 @@ function LectureCard({
             </div>
           </div>
         )}
-        <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
+        <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-3">
           <span />
           {lecture.createdAt && (
             <span>
@@ -260,7 +260,7 @@ export default function StudentLectures() {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-2xl">Recorded Lectures</h3>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             Access course lectures and materials
           </p>
         </div>
@@ -277,7 +277,7 @@ export default function StudentLectures() {
                   <stat.icon className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">{stat.label}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</p>
                   <p className="text-2xl">{isLoading ? "—" : stat.value}</p>
                 </div>
               </div>
@@ -318,8 +318,8 @@ export default function StudentLectures() {
           ) : filtered.length === 0 ? (
             <Card>
               <CardContent className="p-12 text-center">
-                <Video className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-500">No lectures available</p>
+                <Video className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+                <p className="text-gray-500 dark:text-gray-400">No lectures available</p>
               </CardContent>
             </Card>
           ) : (
@@ -341,8 +341,8 @@ export default function StudentLectures() {
           ) : recentLectures.length === 0 ? (
             <Card>
               <CardContent className="p-12 text-center">
-                <Video className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-500">No lectures available</p>
+                <Video className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+                <p className="text-gray-500 dark:text-gray-400">No lectures available</p>
               </CardContent>
             </Card>
           ) : (
@@ -369,8 +369,8 @@ export default function StudentLectures() {
           ) : continueLectures.length === 0 ? (
             <Card>
               <CardContent className="p-12 text-center">
-                <Video className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-500">No lectures in progress</p>
+                <Video className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+                <p className="text-gray-500 dark:text-gray-400">No lectures in progress</p>
               </CardContent>
             </Card>
           ) : (
